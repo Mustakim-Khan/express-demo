@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
     })
     .use('/api', coursesRoute);
     
-
 const server = http.createServer(app);
 server.listen(4000, () => {
     console.log('Lisntening 4000');
