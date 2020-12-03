@@ -15,7 +15,11 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('Success'))
 .catch(err => console.log(err));
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+    .use(express.static(join(__dirname, './public')))
+    .get('/', (req, res) => {
+        res.send(join(__dirname, './public/index.html'))
+    })
     .use('/api', coursesRoute);
     
 

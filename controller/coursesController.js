@@ -4,8 +4,8 @@ function createCourse(req, res) {
     const newCourse = new coursesModel({ name: req.body.name });
     newCourse.save()
     .then(() =>  {
-        return res.status(200).json({ msg: 'Save done'});
-        // return res.redirect('/');
+        //return res.status(200).json({ msg: 'Save done'});
+        return res.redirect('/');
     })
     .catch(err => {
         return res.status(500).json({ msg: err.message});
